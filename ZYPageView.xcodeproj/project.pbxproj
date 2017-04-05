@@ -18,6 +18,8 @@
 		09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0B71E94D2850010E87F /* ZYContainView.swift */; };
 		09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0B91E94D2940010E87F /* ZYTitleView.swift */; };
 		09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */; };
+		09C4D0BE1E94E0030010E87F /* ZYTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */; };
+		09C4D0C01E94F01B0010E87F /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BF1E94F01B0010E87F /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		09C4D0B71E94D2850010E87F /* ZYContainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYContainView.swift; sourceTree = "<group>"; };
 		09C4D0B91E94D2940010E87F /* ZYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYTitleView.swift; sourceTree = "<group>"; };
 		09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageView.swift; sourceTree = "<group>"; };
+		09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYTitleStyle.swift; sourceTree = "<group>"; };
+		09C4D0BF1E94F01B0010E87F /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,9 +142,11 @@
 		09C4D0B61E94D2660010E87F /* PageView */ = {
 			isa = PBXGroup;
 			children = (
+				09C4D0BF1E94F01B0010E87F /* UIColor-Extension.swift */,
+				09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */,
 				09C4D0B71E94D2850010E87F /* ZYContainView.swift */,
 				09C4D0B91E94D2940010E87F /* ZYTitleView.swift */,
-				09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */,
+				09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */,
+				09C4D0C01E94F01B0010E87F /* UIColor-Extension.swift in Sources */,
+				09C4D0BE1E94E0030010E87F /* ZYTitleStyle.swift in Sources */,
 				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
 				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
 				09C4D0881E94D2470010E87F /* ViewController.swift in Sources */,
@@ -540,6 +548,7 @@
 				09C4D0AF1E94D2470010E87F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09C4D0B01E94D2470010E87F /* Build configuration list for PBXNativeTarget "ZYPageViewTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +557,7 @@
 				09C4D0B21E94D2470010E87F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09C4D0B31E94D2470010E87F /* Build configuration list for PBXNativeTarget "ZYPageViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +566,7 @@
 				09C4D0B51E94D2470010E87F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
