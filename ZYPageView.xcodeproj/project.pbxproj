@@ -15,6 +15,9 @@
 		09C4D0931E94D2470010E87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C4D0911E94D2470010E87F /* LaunchScreen.storyboard */; };
 		09C4D09E1E94D2470010E87F /* ZYPageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D09D1E94D2470010E87F /* ZYPageViewTests.swift */; };
 		09C4D0A91E94D2470010E87F /* ZYPageViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0A81E94D2470010E87F /* ZYPageViewUITests.swift */; };
+		09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0B71E94D2850010E87F /* ZYContainView.swift */; };
+		09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0B91E94D2940010E87F /* ZYTitleView.swift */; };
+		09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		09C4D0A41E94D2470010E87F /* ZYPageViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYPageViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C4D0A81E94D2470010E87F /* ZYPageViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZYPageViewUITests.swift; sourceTree = "<group>"; };
 		09C4D0AA1E94D2470010E87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09C4D0B71E94D2850010E87F /* ZYContainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYContainView.swift; sourceTree = "<group>"; };
+		09C4D0B91E94D2940010E87F /* ZYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYTitleView.swift; sourceTree = "<group>"; };
+		09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		09C4D0841E94D2470010E87F /* ZYPageView */ = {
 			isa = PBXGroup;
 			children = (
+				09C4D0B61E94D2660010E87F /* PageView */,
 				09C4D0851E94D2470010E87F /* AppDelegate.swift */,
 				09C4D0871E94D2470010E87F /* ViewController.swift */,
 				09C4D0891E94D2470010E87F /* Main.storyboard */,
@@ -126,6 +133,16 @@
 				09C4D0AA1E94D2470010E87F /* Info.plist */,
 			);
 			path = ZYPageViewUITests;
+			sourceTree = "<group>";
+		};
+		09C4D0B61E94D2660010E87F /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				09C4D0B71E94D2850010E87F /* ZYContainView.swift */,
+				09C4D0B91E94D2940010E87F /* ZYTitleView.swift */,
+				09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */,
+				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
+				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
 				09C4D0881E94D2470010E87F /* ViewController.swift in Sources */,
 				09C4D08E1E94D2470010E87F /* ZYPageView.xcdatamodeld in Sources */,
 				09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */,
