@@ -41,7 +41,7 @@ extension ZYPageView {
     }
     
     fileprivate func setupTitleView() {
-        titleView = ZYTitleView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: style.titleViewH), titles: titles)
+        titleView = ZYTitleView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: style.titleViewH), titles: titles, style: style)
         titleView.backgroundColor = UIColor.randomColor()
         addSubview(titleView)
     }

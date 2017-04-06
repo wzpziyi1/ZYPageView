@@ -8,6 +8,12 @@
 
 import UIKit
 
-struct  ZYTitleStyle {
+class  ZYTitleStyle {
     var titleViewH: CGFloat = 44
+    var fontSize: CGFloat = 14
+    var normalColor: UIColor = UIColor(hex: "0x666666")!
+    var selectedColor: UIColor = UIColor.orange
+    var isScrollEnable: Bool = false
+    var titleMargin: CGFloat = 20
+    
 }

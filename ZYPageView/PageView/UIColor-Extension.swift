@@ -62,7 +62,7 @@ extension UIColor {
                 mult *= 16
             }
             
-            return CGFloat(sum) / 255.0
+            return CGFloat(sum)
         }
         return (calFunc(rStr), calFunc(gStr), calFunc(bStr))
     }
