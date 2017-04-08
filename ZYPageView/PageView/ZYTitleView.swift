@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol ZYTitleViewDelegate: class {
+    func titleView(_ titleView: ZYTitleView, targetIdx: Int)
+    
+}
+
 class ZYTitleView: UIView {
 
+    weak var delegate: ZYTitleViewDelegate?
+    
     fileprivate var titles: [String]
     fileprivate var style: ZYTitleStyle
     
@@ -21,6 +28,8 @@ class ZYTitleView: UIView {
     }()
     
     fileprivate lazy var titleLabs: [UILabel] = [UILabel]()
+    
+    fileprivate var currentIdx: Int = 0
     
     init(frame: CGRect, titles: [String], style: ZYTitleStyle) {
         self.titles = titles
@@ -57,6 +66,10 @@ extension ZYTitleView {
             lab.tag = i
             scrollView.addSubview(lab)
             titleLabs.append(lab)
+            
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(clickTitleLabel(_:)))
+            lab.addGestureRecognizer(recognizer)
+            lab.isUserInteractionEnabled = true
         }
     }
     
@@ -89,6 +102,37 @@ extension ZYTitleView {
         }
         
         scrollView.contentSize = style.isScrollEnable ? CGSize(width: titleLabs.last!.frame.maxX + style.titleMargin * 0.5, height: 0) : CGSize.zero
+        
+    }
+}
+
+
+// MARK: - 事件监听
+extension ZYTitleView {
+    @objc fileprivate func clickTitleLabel(_ recognizer: UITapGestureRecognizer) {
+        let targetLab = recognizer.view as! UILabel
+        let sourceLab = titleLabs[currentIdx]
+        
+        sourceLab.textColor = style.normalColor
+        targetLab.textColor = style.selectedColor
+        
+        currentIdx = targetLab.tag
+        
+        delegate?.titleView(self, targetIdx: currentIdx)
+        
+        if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
+            var offsetX: CGFloat = targetLab.center.x - scrollView.bounds.width * 0.5
+            
+            if offsetX < 0 {
+                offsetX = 0
+            }
+            
+            if offsetX > (scrollView.contentSize.width - scrollView.bounds.width) {
+                offsetX = scrollView.contentSize.width - scrollView.bounds.width
+            }
+            scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
+        }
+        
         
     }
 }

@@ -81,3 +81,12 @@ extension ZYContainView: UICollectionViewDataSource {
     }
     
 }
+
+extension ZYContainView: ZYTitleViewDelegate {
+    func titleView(_ titleView: ZYTitleView, targetIdx: Int) {
+        let indexPath = IndexPath(item: targetIdx, section: 0)
+        
+        collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+        
+    }
+}

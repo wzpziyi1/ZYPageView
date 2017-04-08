@@ -51,6 +51,8 @@ extension ZYPageView {
         let containView = ZYContainView(frame: frame, fatherVc: fatherVc, childVcs: childVcs)
         containView.backgroundColor = UIColor.randomColor()
         addSubview(containView)
+        
+        self.titleView.delegate = containView
     }
     
 }
