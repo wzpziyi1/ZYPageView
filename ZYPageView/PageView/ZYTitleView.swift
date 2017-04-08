@@ -106,12 +106,33 @@ extension ZYTitleView {
     }
 }
 
+extension ZYTitleView: ZYContainViewDelegate {
+    
+    func containView(_ containView: ZYContainView, targetIdx: Int) {
+        adjustTitleLab(sourceLab: titleLabs[currentIdx], targetLab: titleLabs[targetIdx])
+    }
+    
+    func containView(_ containView: ZYContainView, targetIdx: Int, progress: CGFloat) {
+        let targetLab = titleLabs[targetIdx]
+        let sourceLab = titleLabs[currentIdx]
+        
+        
+        // 颜色渐变
+        let deltaRGB = UIColor.getRGBDelta(style.selectedColor, style.normalColor)
+        let selectRGB = style.selectedColor.getRGB()
+        let normalRGB = style.normalColor.getRGB()
+        targetLab.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
+        sourceLab.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+    }
+}
 
 // MARK: - 事件监听
 extension ZYTitleView {
     @objc fileprivate func clickTitleLabel(_ recognizer: UITapGestureRecognizer) {
         let targetLab = recognizer.view as! UILabel
         let sourceLab = titleLabs[currentIdx]
+        
+//        adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
         
         sourceLab.textColor = style.normalColor
         targetLab.textColor = style.selectedColor
@@ -133,6 +154,30 @@ extension ZYTitleView {
             scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
         }
         
+        delegate?.titleView(self, targetIdx: currentIdx)
+    }
+    
+    fileprivate func adjustTitleLab(sourceLab: UILabel, targetLab: UILabel) {
         
+        sourceLab.textColor = style.normalColor
+        targetLab.textColor = style.selectedColor
+        
+        currentIdx = targetLab.tag
+        
+        delegate?.titleView(self, targetIdx: currentIdx)
+        
+        if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
+            var offsetX: CGFloat = targetLab.center.x - scrollView.bounds.width * 0.5
+            
+            if offsetX < 0 {
+                offsetX = 0
+            }
+            
+            if offsetX > (scrollView.contentSize.width - scrollView.bounds.width) {
+                offsetX = scrollView.contentSize.width - scrollView.bounds.width
+            }
+            scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
+        }
     }
 }
+

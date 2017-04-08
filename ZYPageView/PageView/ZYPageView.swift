@@ -53,6 +53,7 @@ extension ZYPageView {
         addSubview(containView)
         
         self.titleView.delegate = containView
+        containView.delegate = titleView
     }
     
 }

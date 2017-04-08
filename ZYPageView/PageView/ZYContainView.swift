@@ -10,10 +10,20 @@ import UIKit
 
 fileprivate let kContainCellID = "kContainCellID"
 
+protocol ZYContainViewDelegate: class {
+    func containView(_ containView: ZYContainView, targetIdx: Int)
+    
+    func containView(_ containView: ZYContainView, targetIdx: Int, progress: CGFloat)
+}
+
 class ZYContainView: UIView {
+    
+    weak var delegate: ZYContainViewDelegate?
     
     fileprivate var fatherVc: UIViewController
     fileprivate var childVcs: [UIViewController]
+    fileprivate var startOffsetX: CGFloat = 0
+    
     
     fileprivate lazy var collectionView: UICollectionView = {
         
@@ -26,6 +36,7 @@ class ZYContainView: UIView {
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContainCellID)
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
@@ -80,6 +91,62 @@ extension ZYContainView: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+extension ZYContainView: UICollectionViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        contentEndScroll()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            contentEndScroll()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if startOffsetX == scrollView.contentOffset.x {   //如果初始移动的x值一样
+            return
+        }
+        
+        // 定义targetIndex/progress
+        var targetIndex = 0
+        var progress : CGFloat = 0.0
+        
+        // 给targetIndex/progress赋值
+        let currentIndex = Int(startOffsetX / scrollView.bounds.width)
+        if startOffsetX < scrollView.contentOffset.x { // 左滑动
+            targetIndex = currentIndex + 1
+            if targetIndex > childVcs.count - 1 {
+                targetIndex = childVcs.count - 1
+            }
+            
+            progress = (scrollView.contentOffset.x - startOffsetX) / scrollView.bounds.width
+        } else { // 右滑动
+            targetIndex = currentIndex - 1
+            if targetIndex < 0 {
+                targetIndex = 0
+            }
+            
+            progress = (startOffsetX - scrollView.contentOffset.x) / scrollView.bounds.width
+        }
+        
+        // 通知代理，切换titleView文字的渐变
+        delegate?.containView(self, targetIdx: targetIndex, progress: progress)
+    }
+    
+    private func contentEndScroll() {
+        
+        let currentIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
+        
+        delegate?.containView(self, targetIdx: currentIndex)
+        
+        
+    }
 }
 
 extension ZYContainView: ZYTitleViewDelegate {
