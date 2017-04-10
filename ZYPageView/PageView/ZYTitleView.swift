@@ -27,6 +27,14 @@ class ZYTitleView: UIView {
         return scrollView
     }()
     
+    fileprivate lazy var bottomLine: UIView = {
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = self.style.scrollLineColor
+        bottomLine.frame.size.height = self.style.scrollLineH
+        bottomLine.frame.origin.y = self.bounds.height - self.style.scrollLineH
+        return bottomLine
+    }()
+    
     fileprivate lazy var titleLabs: [UILabel] = [UILabel]()
     
     fileprivate var currentIdx: Int = 0
@@ -54,6 +62,10 @@ extension ZYTitleView {
         setupTitleLabs()
         
         setupSubviewsFrame()
+        
+        if style.isShowScrollLine {
+            addSubview(bottomLine)
+        }
     }
     
     fileprivate func setupTitleLabs() {
@@ -93,12 +105,20 @@ extension ZYTitleView {
                 }
                 else {
                     x = style.titleMargin * 0.5
+                    if style.isShowScrollLine {
+                        bottomLine.frame.origin.x = x
+                        bottomLine.frame.size.width = w
+                    }
                 }
             }
             else {
                 
                 w = bounds.width / CGFloat(titleLabs.count)
                 x = CGFloat(i) * w
+                if i == 0 && style.isShowScrollLine {
+                    bottomLine.frame.origin.x = 0
+                    bottomLine.frame.size.width = w
+                }
             }
             label.frame = CGRect(x: x, y: y, width: w, height: h)
         }
@@ -136,6 +156,13 @@ extension ZYTitleView {
         
         adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
         
+        if style.isShowScrollLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.frame.origin.x = targetLab.frame.origin.x
+                self.bottomLine.frame.size.width = targetLab.frame.width
+            })
+        }
+        
         delegate?.titleView(self, targetIdx: currentIdx)
     }
     
@@ -160,6 +187,8 @@ extension ZYTitleView {
             }
             scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
         }
+        
+        
     }
 }
 

@@ -16,4 +16,8 @@ class  ZYTitleStyle {
     var isScrollEnable: Bool = false
     var titleMargin: CGFloat = 20
     
+    var isShowScrollLine: Bool = true
+    var scrollLineH: CGFloat = 2
+    var scrollLineColor: UIColor = UIColor.orange
+    
 }
