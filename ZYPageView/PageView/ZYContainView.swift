@@ -25,6 +25,9 @@ class ZYContainView: UIView {
     fileprivate var startOffsetX: CGFloat = 0
     
     
+    /// 是否禁止滚动
+    fileprivate var isForbidScroll: Bool = false
+    
     fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
@@ -95,6 +98,8 @@ extension ZYContainView: UICollectionViewDataSource {
 
 extension ZYContainView: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        isForbidScroll = true
         startOffsetX = scrollView.contentOffset.x
     }
     
@@ -109,7 +114,7 @@ extension ZYContainView: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if startOffsetX == scrollView.contentOffset.x {   //如果初始移动的x值一样
+        if startOffsetX == scrollView.contentOffset.x || isForbidScroll {   //如果初始移动的x值一样、或者禁止滚动
             return
         }
         
@@ -141,6 +146,10 @@ extension ZYContainView: UICollectionViewDelegate {
     
     private func contentEndScroll() {
         
+        guard !isForbidScroll else {
+            return
+        }
+        
         let currentIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
         
         delegate?.containView(self, targetIdx: currentIndex)
@@ -151,8 +160,9 @@ extension ZYContainView: UICollectionViewDelegate {
 
 extension ZYContainView: ZYTitleViewDelegate {
     func titleView(_ titleView: ZYTitleView, targetIdx: Int) {
-        let indexPath = IndexPath(item: targetIdx, section: 0)
         
+        isForbidScroll = true
+        let indexPath = IndexPath(item: targetIdx, section: 0)
         collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
         
     }

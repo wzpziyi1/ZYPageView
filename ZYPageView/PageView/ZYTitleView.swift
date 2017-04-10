@@ -31,6 +31,8 @@ class ZYTitleView: UIView {
     
     fileprivate var currentIdx: Int = 0
     
+    
+    
     init(frame: CGRect, titles: [String], style: ZYTitleStyle) {
         self.titles = titles
         self.style = style
@@ -132,27 +134,7 @@ extension ZYTitleView {
         let targetLab = recognizer.view as! UILabel
         let sourceLab = titleLabs[currentIdx]
         
-//        adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
-        
-        sourceLab.textColor = style.normalColor
-        targetLab.textColor = style.selectedColor
-        
-        currentIdx = targetLab.tag
-        
-        delegate?.titleView(self, targetIdx: currentIdx)
-        
-        if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
-            var offsetX: CGFloat = targetLab.center.x - scrollView.bounds.width * 0.5
-            
-            if offsetX < 0 {
-                offsetX = 0
-            }
-            
-            if offsetX > (scrollView.contentSize.width - scrollView.bounds.width) {
-                offsetX = scrollView.contentSize.width - scrollView.bounds.width
-            }
-            scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
-        }
+        adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
         
         delegate?.titleView(self, targetIdx: currentIdx)
     }
