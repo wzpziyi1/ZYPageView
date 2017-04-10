@@ -99,7 +99,7 @@ extension ZYContainView: UICollectionViewDataSource {
 extension ZYContainView: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        isForbidScroll = true
+        isForbidScroll = false
         startOffsetX = scrollView.contentOffset.x
     }
     
@@ -146,7 +146,7 @@ extension ZYContainView: UICollectionViewDelegate {
     
     private func contentEndScroll() {
         
-        guard !isForbidScroll else {
+        if isForbidScroll {
             return
         }
         

@@ -64,7 +64,7 @@ extension ZYTitleView {
         setupSubviewsFrame()
         
         if style.isShowScrollLine {
-            addSubview(bottomLine)
+            scrollView.addSubview(bottomLine)
         }
     }
     
@@ -156,13 +156,6 @@ extension ZYTitleView {
         
         adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
         
-        if style.isShowScrollLine {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.bottomLine.frame.origin.x = targetLab.frame.origin.x
-                self.bottomLine.frame.size.width = targetLab.frame.width
-            })
-        }
-        
         delegate?.titleView(self, targetIdx: currentIdx)
     }
     
@@ -174,6 +167,13 @@ extension ZYTitleView {
         currentIdx = targetLab.tag
         
         delegate?.titleView(self, targetIdx: currentIdx)
+        
+        if style.isShowScrollLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.frame.origin.x = targetLab.frame.origin.x
+                self.bottomLine.frame.size.width = targetLab.frame.width
+            })
+        }
         
         if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
             var offsetX: CGFloat = targetLab.center.x - scrollView.bounds.width * 0.5
