@@ -145,6 +145,16 @@ extension ZYTitleView: ZYContainViewDelegate {
         let normalRGB = style.normalColor.getRGB()
         targetLab.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
         sourceLab.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+        
+        
+        //计算滚动的范围差值
+        let moveTotalX = targetLab.frame.origin.x - sourceLab.frame.origin.x
+        let moveTotalW = targetLab.frame.width - sourceLab.frame.width
+        
+        if style.isShowScrollLine {
+            bottomLine.frame.size.width = sourceLab.frame.width + moveTotalW * progress
+            bottomLine.frame.origin.x = sourceLab.frame.origin.x + moveTotalX * progress
+        }
     }
 }
 
