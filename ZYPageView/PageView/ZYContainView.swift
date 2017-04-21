@@ -13,7 +13,7 @@ fileprivate let kContainCellID = "kContainCellID"
 protocol ZYContainViewDelegate: class {
     func containView(_ containView: ZYContainView, targetIdx: Int)
     
-    func containView(_ containView: ZYContainView, targetIdx: Int, progress: CGFloat)
+    func containView(_ containView: ZYContainView, targetIdx: Int, sourceIdx: Int, progress: CGFloat)
 }
 
 class ZYContainView: UIView {
@@ -25,7 +25,7 @@ class ZYContainView: UIView {
     fileprivate var startOffsetX: CGFloat = 0
     
     
-    /// 是否禁止滚动
+    /// 是否禁止滚动，主要是点击事件的时候，不需要做处理
     fileprivate var isForbidScroll: Bool = false
     
     fileprivate lazy var collectionView: UICollectionView = {
@@ -123,25 +123,45 @@ extension ZYContainView: UICollectionViewDelegate {
         var progress : CGFloat = 0.0
         
         // 给targetIndex/progress赋值
-        let currentIndex = Int(startOffsetX / scrollView.bounds.width)
+        var currentIndex: Int = 0
+        
         if startOffsetX < scrollView.contentOffset.x { // 左滑动
+            
+            currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
             targetIndex = currentIndex + 1
             if targetIndex > childVcs.count - 1 {
                 targetIndex = childVcs.count - 1
             }
             
             progress = (scrollView.contentOffset.x - startOffsetX) / scrollView.bounds.width
+            
+            //如果刚好滚完一页
+            if scrollView.contentOffset.x - startOffsetX == scrollView.bounds.width {
+                progress = 1
+                targetIndex = currentIndex
+            }
+            
         } else { // 右滑动
+            currentIndex = Int(startOffsetX / scrollView.bounds.width)
             targetIndex = currentIndex - 1
             if targetIndex < 0 {
                 targetIndex = 0
             }
             
             progress = (startOffsetX - scrollView.contentOffset.x) / scrollView.bounds.width
+            
+            //如果刚好滚完一页
+            if startOffsetX - scrollView.contentOffset.x == scrollView.bounds.width {
+                progress = 1
+                currentIndex = targetIndex
+            }
         }
         
         // 通知代理，切换titleView文字的渐变
-        delegate?.containView(self, targetIdx: targetIndex, progress: progress)
+        delegate?.containView(self, targetIdx: targetIndex, sourceIdx: currentIndex, progress: progress)
+        
+        
+        
     }
     
     private func contentEndScroll() {
