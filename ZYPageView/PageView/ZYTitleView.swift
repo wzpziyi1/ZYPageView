@@ -131,13 +131,19 @@ extension ZYTitleView {
 extension ZYTitleView: ZYContainViewDelegate {
     
     func containView(_ containView: ZYContainView, targetIdx: Int) {
+        
+        
+        currentIdx = targetIdx
         adjustTitleLab(sourceLab: titleLabs[currentIdx], targetLab: titleLabs[targetIdx])
     }
     
     func containView(_ containView: ZYContainView, targetIdx: Int, sourceIdx: Int, progress: CGFloat) {
+        
+        
         let targetLab = titleLabs[targetIdx]
         let sourceLab = titleLabs[sourceIdx]
         
+//        print("\(sourceIdx)    \(targetIdx)")
         currentIdx = targetIdx
         // 颜色渐变
         let deltaRGB = UIColor.getRGBDelta(style.selectedColor, style.normalColor)
@@ -157,7 +163,6 @@ extension ZYTitleView: ZYContainViewDelegate {
             bottomLine.frame.origin.x = sourceLab.frame.origin.x + moveTotalX * progress
         }
         
-        
     }
 }
 
@@ -166,6 +171,13 @@ extension ZYTitleView {
     @objc fileprivate func clickTitleLabel(_ recognizer: UITapGestureRecognizer) {
         let targetLab = recognizer.view as! UILabel
         let sourceLab = titleLabs[currentIdx]
+        
+        if style.isShowScrollLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.frame.origin.x = targetLab.frame.origin.x
+                self.bottomLine.frame.size.width = targetLab.frame.width
+            })
+        }
         
         adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
         
@@ -181,12 +193,6 @@ extension ZYTitleView {
         
         delegate?.titleView(self, targetIdx: currentIdx)
         
-        if style.isShowScrollLine {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.bottomLine.frame.origin.x = targetLab.frame.origin.x
-                self.bottomLine.frame.size.width = targetLab.frame.width
-            })
-        }
         
         if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
             var offsetX: CGFloat = targetLab.center.x - scrollView.bounds.width * 0.5
