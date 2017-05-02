@@ -21,6 +21,7 @@ class ZYPageView: UIView {
         self.titles = titles
         self.childVcs = childVcs
         self.fatherVc = fatherVc
+        
         self.style = style
         super.init(frame: frame)
         
@@ -36,6 +37,7 @@ class ZYPageView: UIView {
 // MARK: - 设置UI
 extension ZYPageView {
     fileprivate func setupUI() {
+        fatherVc.automaticallyAdjustsScrollViewInsets = false
         setupTitleView()
         setupContainView()
     }
