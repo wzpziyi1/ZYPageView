@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */; };
+		09A855321EBA380C00798056 /* ZYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */; };
 		09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0851E94D2470010E87F /* AppDelegate.swift */; };
 		09C4D0881E94D2470010E87F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0871E94D2470010E87F /* ViewController.swift */; };
 		09C4D08B1E94D2470010E87F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C4D0891E94D2470010E87F /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageCollectionView.swift; sourceTree = "<group>"; };
+		09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		09C4D0821E94D2470010E87F /* ZYPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C4D0851E94D2470010E87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C4D0871E94D2470010E87F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				09C4D0B91E94D2940010E87F /* ZYTitleView.swift */,
 				09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */,
 				09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */,
+				09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */,
 				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
 				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
+				09A855321EBA380C00798056 /* ZYPageCollectionViewLayout.swift in Sources */,
 				09C4D0881E94D2470010E87F /* ViewController.swift in Sources */,
 				09C4D08E1E94D2470010E87F /* ZYPageView.xcdatamodeld in Sources */,
 				09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */,
