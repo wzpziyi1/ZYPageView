@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */; };
 		09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0851E94D2470010E87F /* AppDelegate.swift */; };
 		09C4D0881E94D2470010E87F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0871E94D2470010E87F /* ViewController.swift */; };
 		09C4D08B1E94D2470010E87F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C4D0891E94D2470010E87F /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageCollectionView.swift; sourceTree = "<group>"; };
 		09C4D0821E94D2470010E87F /* ZYPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C4D0851E94D2470010E87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C4D0871E94D2470010E87F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				09C4D0B71E94D2850010E87F /* ZYContainView.swift */,
 				09C4D0B91E94D2940010E87F /* ZYTitleView.swift */,
 				09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */,
+				09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */,
 				09C4D0C01E94F01B0010E87F /* UIColor-Extension.swift in Sources */,
 				09C4D0BE1E94E0030010E87F /* ZYTitleStyle.swift in Sources */,
+				09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */,
 				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
 				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
 				09C4D0881E94D2470010E87F /* ViewController.swift in Sources */,
