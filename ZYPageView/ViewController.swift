@@ -69,7 +69,7 @@ extension ViewController: ZYPageCollectionViewDataSource {
     }
     
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(arc4random_uniform(30) + 30)
+        return Int(35)
     }
     
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
