@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let kPageCollectionViewIdentity = "kPageCollectionViewIdentity"
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -55,9 +57,25 @@ class ViewController: UIViewController {
         
         let pageFrame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 300)
         let pageCollectionView = ZYPageCollectionView(frame: pageFrame, titles: titles, isTitleInTop: false, style: style, layout: layout)
+        pageCollectionView.registerCellClass(UICollectionViewCell.self, identifier: kPageCollectionViewIdentity)
+        pageCollectionView.dataSource = self
         view.addSubview(pageCollectionView)
     }
+}
 
-
+extension ViewController: ZYPageCollectionViewDataSource {
+    func numberOfSection(in pageCollectionView: ZYPageCollectionView) -> Int {
+        return 4
+    }
+    
+    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Int(arc4random_uniform(30) + 30)
+    }
+    
+    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPageCollectionViewIdentity, for: indexPath)
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
 }
 

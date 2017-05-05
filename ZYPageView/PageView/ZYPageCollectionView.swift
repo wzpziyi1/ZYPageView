@@ -8,14 +8,22 @@
 
 import UIKit
 
-private let kPageCollectionViewIdentity = "kPageCollectionViewIdentity"
+
+protocol ZYPageCollectionViewDataSource: class {
+    func numberOfSection(in pageCollectionView: ZYPageCollectionView) -> Int
+    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, numberOfItemsInSection section: Int) -> Int
+    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+}
 
 class ZYPageCollectionView: UIView {
 
+    var dataSource: ZYPageCollectionViewDataSource?
     var titles: [String]
     var isTitleInTop: Bool
     var style: ZYTitleStyle
     var layout: UICollectionViewLayout
+    
+    var collectionView: UICollectionView!
     
     
     init(frame: CGRect, titles: [String], isTitleInTop: Bool = true, style: ZYTitleStyle, layout: UICollectionViewLayout) {
@@ -33,6 +41,18 @@ class ZYPageCollectionView: UIView {
     }
 }
 
+
+// MARK: - 外面用的注册cell的方法
+extension ZYPageCollectionView {
+    
+    func registerCellClass(_ cellClass: AnyClass?, identifier: String) {
+        collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
+    }
+    
+    func registerCellNib(_ cellNib: UINib?, identifier: String) {
+        collectionView.register(cellNib, forCellWithReuseIdentifier: identifier)
+    }
+}
 
 // MARK: - 设置UI
 extension ZYPageCollectionView {
@@ -53,9 +73,8 @@ extension ZYPageCollectionView {
         
         let collectionViewY = isTitleInTop ? style.titleViewH : 0
         let collectionViewFrame = CGRect(x: 0, y: collectionViewY, width: bounds.width, height: bounds.height - style.titleViewH - pageControlH)
-        let collectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kPageCollectionViewIdentity)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = UIColor.randomColor()
@@ -68,18 +87,15 @@ extension ZYPageCollectionView {
 // MARK: - UICollectionViewDataSource
 extension ZYPageCollectionView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return self.dataSource?.numberOfSection(in: self) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(arc4random_uniform(30)) + 30
+        return self.dataSource?.pageCollectionView(self, numberOfItemsInSection: section) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPageCollectionViewIdentity, for: indexPath)
         
-        cell.backgroundColor = UIColor.randomColor()
-        
-        return cell
+        return self.dataSource!.pageCollectionView(self, collectionView, cellForItemAt: indexPath)
     }
 }
