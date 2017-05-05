@@ -38,16 +38,18 @@ class ViewController: UIViewController {
     }
     
     fileprivate func showPageViewWithCollectionView() {
-        let titles = ["主题", "pp", "qqqq", "wwww"];
         
+        //系统会自动给scrollView添加内边距，建议加上这一句
+        automaticallyAdjustsScrollViewInsets = false
+        
+        let titles = ["主题", "pp", "qqqq", "wwww"];
         let style = ZYTitleStyle()
         style.isShowScrollLine = true
         
         let layout = ZYPageCollectionViewLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-//        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
         layout.cols = 7
         layout.rows = 3
         

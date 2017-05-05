@@ -23,7 +23,7 @@ extension ZYPageCollectionViewLayout {
         let itemW = (collectionView!.bounds.width - sectionInset.left - sectionInset.right - minimumInteritemSpacing * CGFloat(cols - 1)) / CGFloat(cols)
         let itemH = (collectionView!.bounds.height - sectionInset.top - sectionInset.bottom - minimumLineSpacing * CGFloat(rows - 1)) / CGFloat(rows)
         
-        
+        cellAttrs.removeAll()
         /// 一共有多少组cell
         let sectionNum = collectionView!.numberOfSections
         
