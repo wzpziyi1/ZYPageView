@@ -21,12 +21,16 @@ class ZYPageCollectionView: UIView {
     var titles: [String]
     var isTitleInTop: Bool
     var style: ZYTitleStyle
-    var layout: UICollectionViewLayout
+    var layout: ZYPageCollectionViewLayout
+    var sourceIndexPath: IndexPath = IndexPath(item: 0, section: 0)
     
     var collectionView: UICollectionView!
+    var pageControl: UIPageControl!
+    var titleView: ZYTitleView!
     
     
-    init(frame: CGRect, titles: [String], isTitleInTop: Bool = true, style: ZYTitleStyle, layout: UICollectionViewLayout) {
+    
+    init(frame: CGRect, titles: [String], isTitleInTop: Bool = true, style: ZYTitleStyle, layout: ZYPageCollectionViewLayout) {
         self.titles = titles
         self.isTitleInTop = isTitleInTop
         self.style = style
@@ -59,14 +63,15 @@ extension ZYPageCollectionView {
     fileprivate func setupUI() {
         let titleViewY = isTitleInTop ? 0 : bounds.height - style.titleViewH
         let titleViewFrame = CGRect(x: 0, y: titleViewY, width: bounds.width, height: style.titleViewH)
-        let titleView = ZYTitleView(frame: titleViewFrame, titles: titles, style: style)
+        titleView = ZYTitleView(frame: titleViewFrame, titles: titles, style: style)
+        titleView.delegate = self
         titleView.backgroundColor = UIColor.randomColor()
         addSubview(titleView)
         
         let pageControlH: CGFloat = 20
         let pageControlY = isTitleInTop ? (bounds.height - pageControlH) : (bounds.height - style.titleViewH - pageControlH)
         let pageControlFrame = CGRect(x: 0, y: pageControlY, width: bounds.width, height: pageControlH)
-        let pageControl = UIPageControl(frame: pageControlFrame)
+        pageControl = UIPageControl(frame: pageControlFrame)
         pageControl.numberOfPages = 4
         pageControl.backgroundColor = UIColor.randomColor()
         addSubview(pageControl)
@@ -75,6 +80,7 @@ extension ZYPageCollectionView {
         let collectionViewFrame = CGRect(x: 0, y: collectionViewY, width: bounds.width, height: bounds.height - style.titleViewH - pageControlH)
         collectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = UIColor.randomColor()
@@ -97,5 +103,52 @@ extension ZYPageCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         return self.dataSource!.pageCollectionView(self, collectionView, cellForItemAt: indexPath)
+    }
+}
+
+
+// MARK: - 处理滚动逻辑
+extension ZYPageCollectionView: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewEndScroll()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewEndScroll()
+        }
+    }
+    
+    
+    /// 处理滚动结束
+    fileprivate func scrollViewEndScroll() {
+        //首先，可以拿到当前屏幕上的一个point，然后根据这个point取到对应cell的indexPath，需要注意的是，要确保这个point的位置是在某个cell上面的
+        let point = CGPoint(x: layout.sectionInset.left + 1 + collectionView.contentOffset.x, y: layout.sectionInset.top + 1 + collectionView.contentOffset.y)
+        guard let indexPath = collectionView.indexPathForItem(at: point) else{ return }
+        
+        if indexPath.section != sourceIndexPath.section {
+            //这一组有个cell
+            let itemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: indexPath.section) ?? 1
+            //这一组页数
+            pageControl.numberOfPages = (itemCount - 1) / (layout.cols * layout.rows) + 1
+            
+            titleView.setTitleWithSourceIndex(sourceIndexPath.section, targetIndex: indexPath.section, progress: 1)
+            
+            sourceIndexPath = indexPath
+        }
+        
+        pageControl.currentPage = indexPath.item / (layout.cols * layout.rows)
+    }
+    
+}
+
+
+extension ZYPageCollectionView: ZYTitleViewDelegate {
+    func titleView(_ titleView: ZYTitleView, targetIdx: Int) {
+        let indexPath = IndexPath(item: 0, section: targetIdx)
+        collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.left, animated: false)
+        collectionView.contentOffset.x -= layout.sectionInset.left
+        scrollViewEndScroll()
     }
 }

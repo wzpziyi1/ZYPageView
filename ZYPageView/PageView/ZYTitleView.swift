@@ -55,6 +55,36 @@ class ZYTitleView: UIView {
 
 }
 
+
+// MARK: - 对外公开的方法
+extension ZYTitleView {
+    func setTitleWithSourceIndex(_ sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
+        let targetLab = titleLabs[targetIndex]
+        let sourceLab = titleLabs[sourceIndex]
+        
+        //        print("\(sourceIdx)    \(targetIdx)")
+        currentIdx = targetIndex
+        // 颜色渐变
+        let deltaRGB = UIColor.getRGBDelta(style.selectedColor, style.normalColor)
+        let selectRGB = style.selectedColor.getRGB()
+        let normalRGB = style.normalColor.getRGB()
+        
+        sourceLab.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+        targetLab.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
+        
+        
+        //计算滚动的范围差值
+        let moveTotalX = targetLab.frame.origin.x - sourceLab.frame.origin.x
+        let moveTotalW = targetLab.frame.width - sourceLab.frame.width
+        
+        if style.isShowScrollLine {
+            bottomLine.frame.size.width = sourceLab.frame.width + moveTotalW * progress
+            bottomLine.frame.origin.x = sourceLab.frame.origin.x + moveTotalX * progress
+        }
+
+    }
+}
+
 extension ZYTitleView {
     fileprivate func setupUI() {
         addSubview(scrollView)
@@ -138,31 +168,7 @@ extension ZYTitleView: ZYContainViewDelegate {
     }
     
     func containView(_ containView: ZYContainView, targetIdx: Int, sourceIdx: Int, progress: CGFloat) {
-        
-        
-        let targetLab = titleLabs[targetIdx]
-        let sourceLab = titleLabs[sourceIdx]
-        
-//        print("\(sourceIdx)    \(targetIdx)")
-        currentIdx = targetIdx
-        // 颜色渐变
-        let deltaRGB = UIColor.getRGBDelta(style.selectedColor, style.normalColor)
-        let selectRGB = style.selectedColor.getRGB()
-        let normalRGB = style.normalColor.getRGB()
-        
-        sourceLab.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
-        targetLab.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
-        
-        
-        //计算滚动的范围差值
-        let moveTotalX = targetLab.frame.origin.x - sourceLab.frame.origin.x
-        let moveTotalW = targetLab.frame.width - sourceLab.frame.width
-        
-        if style.isShowScrollLine {
-            bottomLine.frame.size.width = sourceLab.frame.width + moveTotalW * progress
-            bottomLine.frame.origin.x = sourceLab.frame.origin.x + moveTotalX * progress
-        }
-        
+        setTitleWithSourceIndex(sourceIdx, targetIndex: targetIdx, progress: progress)
     }
 }
 

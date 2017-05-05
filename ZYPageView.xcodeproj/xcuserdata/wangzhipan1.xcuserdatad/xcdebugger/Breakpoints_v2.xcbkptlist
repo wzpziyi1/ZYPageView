@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZYPageView/PageView/ZYPageCollectionView.swift"
-            timestampString = "515660363.683329"
+            timestampString = "515667428.793656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "init(frame:titles:isTitleInTop:style:layout:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZYPageView/PageView/ZYPageCollectionView.swift"
-            timestampString = "515660363.683329"
+            timestampString = "515667428.793656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
