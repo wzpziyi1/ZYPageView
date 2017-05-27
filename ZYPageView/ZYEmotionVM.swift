@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ZYEmotionVM: NSObject {
-    static let sharedEmotionVm = ZYEmotionVM()
-//    fileprivate var 
+class ZYEmotionVM {
+    static let sharedEmotionVM = ZYEmotionVM()
+    lazy var packages : [ZYEmoPackageEntity] = [ZYEmoPackageEntity]()
+    
+    init() {
+        packages.append(ZYEmoPackageEntity(plistName: "QHNormalEmotionSort.plist"))
+        packages.append(ZYEmoPackageEntity(plistName: "QHSohuGifSort.plist"))
+    }
 }
