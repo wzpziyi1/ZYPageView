@@ -72,8 +72,8 @@ extension ZYPageCollectionView {
         let pageControlY = isTitleInTop ? (bounds.height - pageControlH) : (bounds.height - style.titleViewH - pageControlH)
         let pageControlFrame = CGRect(x: 0, y: pageControlY, width: bounds.width, height: pageControlH)
         pageControl = UIPageControl(frame: pageControlFrame)
-        pageControl.numberOfPages = 4
-        pageControl.backgroundColor = UIColor.randomColor()
+    
+        pageControl.backgroundColor = UIColor.gray
         addSubview(pageControl)
         
         let collectionViewY = isTitleInTop ? style.titleViewH : 0
@@ -83,7 +83,7 @@ extension ZYPageCollectionView {
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = UIColor.randomColor()
+        collectionView.backgroundColor = UIColor.black
         addSubview(collectionView)
         
     }
@@ -97,7 +97,13 @@ extension ZYPageCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataSource?.pageCollectionView(self, numberOfItemsInSection: section) ?? 0
+        
+        let itemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: section) ?? 0
+        
+        if section == 0 {
+            pageControl.numberOfPages = (itemCount - 1) / (layout.cols * layout.rows) + 1
+        }
+        return itemCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -125,13 +131,18 @@ extension ZYPageCollectionView: UICollectionViewDelegate {
     fileprivate func scrollViewEndScroll() {
         //首先，可以拿到当前屏幕上的一个point，然后根据这个point取到对应cell的indexPath，需要注意的是，要确保这个point的位置是在某个cell上面的
         let point = CGPoint(x: layout.sectionInset.left + 1 + collectionView.contentOffset.x, y: layout.sectionInset.top + 1 + collectionView.contentOffset.y)
-        guard let indexPath = collectionView.indexPathForItem(at: point) else{ return }
+        guard let indexPath = collectionView.indexPathForItem(at: point) else{
+            print("----------\(point)")
+            return
+        }
         
         if indexPath.section != sourceIndexPath.section {
             //这一组有个cell
             let itemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: indexPath.section) ?? 1
             //这一组页数
             pageControl.numberOfPages = (itemCount - 1) / (layout.cols * layout.rows) + 1
+            
+//            print(pageControl.numberOfPages)
             
             titleView.setTitleWithSourceIndex(sourceIndexPath.section, targetIndex: indexPath.section, progress: 1)
             
@@ -148,7 +159,12 @@ extension ZYPageCollectionView: ZYTitleViewDelegate {
     func titleView(_ titleView: ZYTitleView, targetIdx: Int) {
         let indexPath = IndexPath(item: 0, section: targetIdx)
         collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.left, animated: false)
-        collectionView.contentOffset.x -= layout.sectionInset.left
-        scrollViewEndScroll()
+        let sectionCount = self.dataSource?.numberOfSection(in: self) ?? 0
+        
+        if targetIdx != sectionCount - 1 {
+            collectionView.contentOffset.x -= layout.sectionInset.left
+        }
+        
+        self.scrollViewEndScroll()
     }
 }

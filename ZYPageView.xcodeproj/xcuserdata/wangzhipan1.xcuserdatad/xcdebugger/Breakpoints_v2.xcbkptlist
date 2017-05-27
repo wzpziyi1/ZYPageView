@@ -16,32 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZYPageView/ZYEmoPackageEntity.swift"
-            timestampString = "517562380.05265"
+            filePath = "ZYPageView/PageView/ZYPageCollectionView.swift"
+            timestampString = "517566068.854634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "init(plistName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZYPageView/ZYEmoPackageEntity.swift"
-            timestampString = "517562412.547574"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "init(plistName:)"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "titleView(_:targetIdx:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

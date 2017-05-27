@@ -186,8 +186,6 @@ extension ZYTitleView {
         }
         
         adjustTitleLab(sourceLab: sourceLab, targetLab: targetLab)
-        
-        delegate?.titleView(self, targetIdx: currentIdx)
     }
     
     fileprivate func adjustTitleLab(sourceLab: UILabel, targetLab: UILabel) {
@@ -196,8 +194,6 @@ extension ZYTitleView {
         targetLab.textColor = style.selectedColor
         
         currentIdx = targetLab.tag
-        
-        delegate?.titleView(self, targetIdx: currentIdx)
         
         
         if style.isScrollEnable {  //调整label的滚动位置到屏幕中间
@@ -213,7 +209,7 @@ extension ZYTitleView {
             scrollView.setContentOffset(CGPoint(x: offsetX, y : 0), animated: true)
         }
         
-        
+        delegate?.titleView(self, targetIdx: currentIdx)
     }
 }
 

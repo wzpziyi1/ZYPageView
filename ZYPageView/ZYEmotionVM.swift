@@ -15,5 +15,7 @@ class ZYEmotionVM {
     init() {
         packages.append(ZYEmoPackageEntity(plistName: "QHNormalEmotionSort.plist"))
         packages.append(ZYEmoPackageEntity(plistName: "QHSohuGifSort.plist"))
+        packages.append(ZYEmoPackageEntity(plistName: "QHNormalEmotionSort.plist"))
+        packages.append(ZYEmoPackageEntity(plistName: "QHSohuGifSort.plist"))
     }
 }

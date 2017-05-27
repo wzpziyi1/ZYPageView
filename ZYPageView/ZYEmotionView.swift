@@ -28,18 +28,15 @@ class ZYEmotionView: UIView {
 extension ZYEmotionView {
     fileprivate func setupUI() {
         //标题
-        let titles = ["普通", "专属粉丝"];
+        let titles = ["普通", "专属粉丝", "pp", "qq"];
         let style = ZYTitleStyle()
         style.isShowScrollLine = true
         
         //实例化表情界面
         let layout = ZYPageCollectionViewLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
         layout.cols = 7
         layout.rows = 3
-        
         let pageCollectionView = ZYPageCollectionView(frame: bounds, titles: titles, isTitleInTop: false, style: style, layout: layout)
         
         //注册cell
@@ -66,6 +63,7 @@ extension ZYEmotionView: ZYPageCollectionViewDataSource {
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kEmotionCellIdentifier, for: indexPath) as! ZYEmotionCell
         cell.emotionEntity = ZYEmotionVM.sharedEmotionVM.packages[indexPath.section].emoticons[indexPath.row]
+        cell.backgroundColor = UIColor.red
         return cell
     }
 }
