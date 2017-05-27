@@ -22,6 +22,11 @@
 		09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */; };
 		09C4D0BE1E94E0030010E87F /* ZYTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */; };
 		09C4D0C01E94F01B0010E87F /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0BF1E94F01B0010E87F /* UIColor-Extension.swift */; };
+		09C860471ED953D500C334D9 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09C860451ED953D500C334D9 /* QHNormalEmotionSort.plist */; };
+		09C860481ED953D500C334D9 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09C860461ED953D500C334D9 /* QHSohuGifSort.plist */; };
+		09C8604A1ED9547800C334D9 /* ZYEmotionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C860491ED9547800C334D9 /* ZYEmotionVM.swift */; };
+		09C8604C1ED954ED00C334D9 /* ZYEmotionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C8604B1ED954ED00C334D9 /* ZYEmotionEntity.swift */; };
+		09C8604E1ED9552700C334D9 /* ZYEmoPackageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C8604D1ED9552700C334D9 /* ZYEmoPackageEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,11 @@
 		09C4D0BB1E94D2A30010E87F /* ZYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageView.swift; sourceTree = "<group>"; };
 		09C4D0BD1E94E0030010E87F /* ZYTitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYTitleStyle.swift; sourceTree = "<group>"; };
 		09C4D0BF1E94F01B0010E87F /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		09C860451ED953D500C334D9 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
+		09C860461ED953D500C334D9 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
+		09C860491ED9547800C334D9 /* ZYEmotionVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYEmotionVM.swift; sourceTree = "<group>"; };
+		09C8604B1ED954ED00C334D9 /* ZYEmotionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYEmotionEntity.swift; sourceTree = "<group>"; };
+		09C8604D1ED9552700C334D9 /* ZYEmoPackageEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYEmoPackageEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 		09C4D0841E94D2470010E87F /* ZYPageView */ = {
 			isa = PBXGroup;
 			children = (
+				09C860401ED952BF00C334D9 /* Emotion */,
 				09C4D0B61E94D2660010E87F /* PageView */,
 				09C4D0851E94D2470010E87F /* AppDelegate.swift */,
 				09C4D0871E94D2470010E87F /* ViewController.swift */,
@@ -155,6 +166,50 @@
 				09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		09C860401ED952BF00C334D9 /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				09C860411ED9539C00C334D9 /* Source */,
+				09C860441ED953B800C334D9 /* View */,
+				09C860431ED953B000C334D9 /* ViewModel */,
+				09C860421ED953A900C334D9 /* Model */,
+			);
+			name = Emotion;
+			sourceTree = "<group>";
+		};
+		09C860411ED9539C00C334D9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				09C860451ED953D500C334D9 /* QHNormalEmotionSort.plist */,
+				09C860461ED953D500C334D9 /* QHSohuGifSort.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		09C860421ED953A900C334D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09C8604B1ED954ED00C334D9 /* ZYEmotionEntity.swift */,
+				09C8604D1ED9552700C334D9 /* ZYEmoPackageEntity.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		09C860431ED953B000C334D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09C860491ED9547800C334D9 /* ZYEmotionVM.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		09C860441ED953B800C334D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +322,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C860471ED953D500C334D9 /* QHNormalEmotionSort.plist in Resources */,
 				09C4D0931E94D2470010E87F /* LaunchScreen.storyboard in Resources */,
 				09C4D0901E94D2470010E87F /* Assets.xcassets in Resources */,
 				09C4D08B1E94D2470010E87F /* Main.storyboard in Resources */,
+				09C860481ED953D500C334D9 /* QHSohuGifSort.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +354,13 @@
 				09C4D0BC1E94D2A30010E87F /* ZYPageView.swift in Sources */,
 				09C4D0C01E94F01B0010E87F /* UIColor-Extension.swift in Sources */,
 				09C4D0BE1E94E0030010E87F /* ZYTitleStyle.swift in Sources */,
+				09C8604C1ED954ED00C334D9 /* ZYEmotionEntity.swift in Sources */,
 				09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */,
+				09C8604E1ED9552700C334D9 /* ZYEmoPackageEntity.swift in Sources */,
 				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
 				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
 				09A855321EBA380C00798056 /* ZYPageCollectionViewLayout.swift in Sources */,
+				09C8604A1ED9547800C334D9 /* ZYEmotionVM.swift in Sources */,
 				09C4D0881E94D2470010E87F /* ViewController.swift in Sources */,
 				09C4D08E1E94D2470010E87F /* ZYPageView.xcdatamodeld in Sources */,
 				09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */,
