@@ -44,38 +44,9 @@ class ViewController: UIViewController {
         //系统会自动给scrollView添加内边距，建议加上这一句
         automaticallyAdjustsScrollViewInsets = false
         
-        let titles = ["主题", "pp", "qqqq", "wwww"];
-        let style = ZYTitleStyle()
-        style.isShowScrollLine = true
-        
-        let layout = ZYPageCollectionViewLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
-        layout.cols = 7
-        layout.rows = 3
-        
-        let pageFrame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 300)
-        let pageCollectionView = ZYPageCollectionView(frame: pageFrame, titles: titles, isTitleInTop: false, style: style, layout: layout)
-        pageCollectionView.registerCellClass(UICollectionViewCell.self, identifier: kPageCollectionViewIdentity)
-        pageCollectionView.dataSource = self
-        view.addSubview(pageCollectionView)
-    }
-}
-
-extension ViewController: ZYPageCollectionViewDataSource {
-    func numberOfSection(in pageCollectionView: ZYPageCollectionView) -> Int {
-        return 4
-    }
-    
-    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(35)
-    }
-    
-    func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPageCollectionViewIdentity, for: indexPath)
-        cell.backgroundColor = UIColor.red
-        return cell
+        let emotionView = ZYEmotionView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 300))
+        emotionView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        view.addSubview(emotionView)
     }
 }
 

@@ -15,6 +15,7 @@ class ZYEmotionCell: UICollectionViewCell {
     
     var emotionEntity: ZYEmotionEntity? {
         didSet {
+//            print(emotionEntity!.emoticonName)
             picView.image = UIImage(named: emotionEntity!.emoticonName)
         }
     }

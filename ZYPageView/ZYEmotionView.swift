@@ -43,7 +43,7 @@ extension ZYEmotionView {
         let pageCollectionView = ZYPageCollectionView(frame: bounds, titles: titles, isTitleInTop: false, style: style, layout: layout)
         
         //注册cell
-        pageCollectionView.registerCellClass(ZYEmotionCell.self, identifier: kEmotionCellIdentifier)
+        pageCollectionView.registerCellNib(UINib(nibName: kEmotionCellIdentifier, bundle: nil), identifier: kEmotionCellIdentifier)
         pageCollectionView.dataSource = self
         addSubview(pageCollectionView)
     }

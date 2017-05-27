@@ -12,6 +12,7 @@ class ZYEmoPackageEntity {
     lazy var emoticons : [ZYEmotionEntity] = [ZYEmotionEntity]()
     
     init(plistName : String) {
+        
         guard let path = Bundle.main.path(forResource: plistName, ofType: nil) else {
             return
         }
