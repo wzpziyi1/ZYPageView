@@ -35,6 +35,7 @@
 		09C860501ED9573200C334D9 /* ZYEmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C8604F1ED9573200C334D9 /* ZYEmotionView.swift */; };
 		09C860531ED9586400C334D9 /* ZYEmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C860511ED9586400C334D9 /* ZYEmotionCell.swift */; };
 		09C860541ED9586400C334D9 /* ZYEmotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C860521ED9586400C334D9 /* ZYEmotionCell.xib */; };
+		69231FE7BD64BB723174801D /* Pods_ZYPageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F27EFE55184CBCE21859096 /* Pods_ZYPageView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,9 @@
 		09C8604F1ED9573200C334D9 /* ZYEmotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYEmotionView.swift; sourceTree = "<group>"; };
 		09C860511ED9586400C334D9 /* ZYEmotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYEmotionCell.swift; sourceTree = "<group>"; };
 		09C860521ED9586400C334D9 /* ZYEmotionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYEmotionCell.xib; sourceTree = "<group>"; };
+		2F27EFE55184CBCE21859096 /* Pods_ZYPageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZYPageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		729150C06B194D27673BB857 /* Pods-ZYPageView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYPageView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYPageView/Pods-ZYPageView.debug.xcconfig"; sourceTree = "<group>"; };
+		FD177B457808937BDD3F0FD6 /* Pods-ZYPageView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYPageView.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZYPageView/Pods-ZYPageView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69231FE7BD64BB723174801D /* Pods_ZYPageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +162,8 @@
 				09C4D09C1E94D2470010E87F /* ZYPageViewTests */,
 				09C4D0A71E94D2470010E87F /* ZYPageViewUITests */,
 				09C4D0831E94D2470010E87F /* Products */,
+				4BC71790EF4356BE5F2330E3 /* Pods */,
+				C6B77038722E87E27A675E26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,7 +180,6 @@
 		09C4D0841E94D2470010E87F /* ZYPageView */ = {
 			isa = PBXGroup;
 			children = (
-				09BF0A6F1EDEB64600E116DE /* ZYNetworkTool.swift */,
 				09C4D0B61E94D2660010E87F /* PageView */,
 				09C860401ED952BF00C334D9 /* Emotion */,
 				09BF0A631EDEA4D900E116DE /* Gift */,
@@ -184,6 +190,7 @@
 				09C4D0911E94D2470010E87F /* LaunchScreen.storyboard */,
 				09C4D0941E94D2470010E87F /* Info.plist */,
 				09C4D08C1E94D2470010E87F /* ZYPageView.xcdatamodeld */,
+				09BF0A6F1EDEB64600E116DE /* ZYNetworkTool.swift */,
 			);
 			path = ZYPageView;
 			sourceTree = "<group>";
@@ -268,6 +275,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4BC71790EF4356BE5F2330E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				729150C06B194D27673BB857 /* Pods-ZYPageView.debug.xcconfig */,
+				FD177B457808937BDD3F0FD6 /* Pods-ZYPageView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C6B77038722E87E27A675E26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F27EFE55184CBCE21859096 /* Pods_ZYPageView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09C4D0AD1E94D2470010E87F /* Build configuration list for PBXNativeTarget "ZYPageView" */;
 			buildPhases = (
+				FF7092293A6648A2F0553B49 /* [CP] Check Pods Manifest.lock */,
 				09C4D07E1E94D2470010E87F /* Sources */,
 				09C4D07F1E94D2470010E87F /* Frameworks */,
 				09C4D0801E94D2470010E87F /* Resources */,
+				407E2C8615D543D57F5A9E5F /* [CP] Embed Pods Frameworks */,
+				BBF89398805673FF4841B872 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,6 +429,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		407E2C8615D543D57F5A9E5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYPageView/Pods-ZYPageView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBF89398805673FF4841B872 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYPageView/Pods-ZYPageView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF7092293A6648A2F0553B49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09C4D07E1E94D2470010E87F /* Sources */ = {
@@ -579,6 +654,7 @@
 		};
 		09C4D0AE1E94D2470010E87F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 729150C06B194D27673BB857 /* Pods-ZYPageView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6FCKHRT95;
@@ -592,6 +668,7 @@
 		};
 		09C4D0AF1E94D2470010E87F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD177B457808937BDD3F0FD6 /* Pods-ZYPageView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6FCKHRT95;
