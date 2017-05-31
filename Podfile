@@ -4,4 +4,6 @@ use_frameworks!
 
 target 'ZYPageView' do
     pod 'Alamofire', '~> 4.0'
+    pod 'Kingfisher', '~> 3.5.2'
+
 end

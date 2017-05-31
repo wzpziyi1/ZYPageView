@@ -15,9 +15,15 @@ protocol ZYPageCollectionViewDataSource: class {
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }
 
+@objc protocol ZYPageCollectionViewDelegate : class {
+    @objc optional func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, didSelectItemAt indexPath: IndexPath)
+}
+
 class ZYPageCollectionView: UIView {
 
-    var dataSource: ZYPageCollectionViewDataSource?
+    weak var dataSource: ZYPageCollectionViewDataSource?
+    weak var delegate: ZYPageCollectionViewDelegate?
+    
     var titles: [String]
     var isTitleInTop: Bool
     var style: ZYTitleStyle
@@ -55,6 +61,10 @@ extension ZYPageCollectionView {
     
     func registerCellNib(_ cellNib: UINib?, identifier: String) {
         collectionView.register(cellNib, forCellWithReuseIdentifier: identifier)
+    }
+    
+    func reloadData() {
+        collectionView.reloadData()
     }
 }
 
@@ -113,8 +123,13 @@ extension ZYPageCollectionView: UICollectionViewDataSource {
 }
 
 
+
 // MARK: - 处理滚动逻辑
 extension ZYPageCollectionView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.pageCollectionView!(self, didSelectItemAt: indexPath)
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewEndScroll()

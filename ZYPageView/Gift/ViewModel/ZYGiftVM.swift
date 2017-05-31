@@ -15,6 +15,7 @@ class ZYGiftVM: NSObject {
 }
 
 extension ZYGiftVM {
+    
     func loadGiftData(finishedCallback : @escaping () -> ()) {
         // http://qf.56.com/pay/v4/giftList.ios?type=0&page=1&rows=150
         
