@@ -25,17 +25,14 @@ class ZYGiftView: UIView {
     fileprivate var currentIndexPath : IndexPath?
     fileprivate var giftVM : ZYGiftVM = ZYGiftVM()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         setupUI()
         
         loadGiftData()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }
 
@@ -99,6 +96,7 @@ extension ZYGiftView {
 
 extension ZYGiftView: ZYPageCollectionViewDataSource, ZYPageCollectionViewDelegate {
     func numberOfSection(in pageCollectionView: ZYPageCollectionView) -> Int {
+        print("----- \(giftVM.giftlistData.count)")
         return giftVM.giftlistData.count
     }
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        showPageViewWithCollectionView()
+        showGiftView()
         
     }
 
@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         view.addSubview(pageView)
     }
     
+    
+    /// 表情键盘
     fileprivate func showPageViewWithCollectionView() {
         
         //系统会自动给scrollView添加内边距，建议加上这一句
@@ -47,6 +49,17 @@ class ViewController: UIViewController {
         let emotionView = ZYEmotionView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 300))
         emotionView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         view.addSubview(emotionView)
+    }
+    
+    
+    /// 礼物键盘
+    fileprivate func showGiftView() {
+        automaticallyAdjustsScrollViewInsets = false
+        
+        let giftView = Bundle.main.loadNibNamed("ZYGiftView", owner: nil, options: nil)?.last as! ZYGiftView
+        giftView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 320)
+        giftView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        view.addSubview(giftView)
     }
 }
 

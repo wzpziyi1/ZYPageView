@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZYPageView/PageView/ZYPageCollectionView.swift"
-            timestampString = "517566068.854634"
+            timestampString = "517916915.132521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "titleView(_:targetIdx:)"
             landmarkType = "7">
          </BreakpointContent>
