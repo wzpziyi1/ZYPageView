@@ -63,7 +63,6 @@ extension ZYEmotionView: ZYPageCollectionViewDataSource {
     func pageCollectionView(_ pageCollectionView: ZYPageCollectionView, _ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kEmotionCellIdentifier, for: indexPath) as! ZYEmotionCell
         cell.emotionEntity = ZYEmotionVM.sharedEmotionVM.packages[indexPath.section].emoticons[indexPath.row]
-        cell.backgroundColor = UIColor.red
         return cell
     }
 }

@@ -9,15 +9,8 @@
 /* Begin PBXBuildFile section */
 		09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */; };
 		09A855321EBA380C00798056 /* ZYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */; };
-		09BF0A681EDEAF1300E116DE /* ZYGiftEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A671EDEAF1300E116DE /* ZYGiftEntity.swift */; };
 		09BF0A6A1EDEB12500E116DE /* ZYBaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A691EDEB12500E116DE /* ZYBaseEntity.swift */; };
-		09BF0A6C1EDEB24600E116DE /* ZYGiftPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A6B1EDEB24600E116DE /* ZYGiftPackage.swift */; };
-		09BF0A6E1EDEB5B800E116DE /* ZYGiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A6D1EDEB5B800E116DE /* ZYGiftVM.swift */; };
 		09BF0A701EDEB64600E116DE /* ZYNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A6F1EDEB64600E116DE /* ZYNetworkTool.swift */; };
-		09BF0A741EDEB92B00E116DE /* ZYGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A731EDEB92B00E116DE /* ZYGiftView.swift */; };
-		09BF0A761EDEB93500E116DE /* ZYGiftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF0A751EDEB93500E116DE /* ZYGiftView.xib */; };
-		09BF0A791EDEBA5100E116DE /* ZYGiftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A771EDEBA5100E116DE /* ZYGiftViewCell.swift */; };
-		09BF0A7A1EDEBA5100E116DE /* ZYGiftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF0A781EDEBA5100E116DE /* ZYGiftViewCell.xib */; };
 		09BF0A7C1EDEBB1800E116DE /* Kingfisher-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF0A7B1EDEBB1800E116DE /* Kingfisher-Extension.swift */; };
 		09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0851E94D2470010E87F /* AppDelegate.swift */; };
 		09C4D0881E94D2470010E87F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D0871E94D2470010E87F /* ViewController.swift */; };
@@ -63,15 +56,8 @@
 /* Begin PBXFileReference section */
 		09A8552F1EBA30E900798056 /* ZYPageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageCollectionView.swift; sourceTree = "<group>"; };
 		09A855311EBA380C00798056 /* ZYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
-		09BF0A671EDEAF1300E116DE /* ZYGiftEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYGiftEntity.swift; sourceTree = "<group>"; };
 		09BF0A691EDEB12500E116DE /* ZYBaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYBaseEntity.swift; sourceTree = "<group>"; };
-		09BF0A6B1EDEB24600E116DE /* ZYGiftPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYGiftPackage.swift; sourceTree = "<group>"; };
-		09BF0A6D1EDEB5B800E116DE /* ZYGiftVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYGiftVM.swift; sourceTree = "<group>"; };
 		09BF0A6F1EDEB64600E116DE /* ZYNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYNetworkTool.swift; sourceTree = "<group>"; };
-		09BF0A731EDEB92B00E116DE /* ZYGiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYGiftView.swift; sourceTree = "<group>"; };
-		09BF0A751EDEB93500E116DE /* ZYGiftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYGiftView.xib; sourceTree = "<group>"; };
-		09BF0A771EDEBA5100E116DE /* ZYGiftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYGiftViewCell.swift; sourceTree = "<group>"; };
-		09BF0A781EDEBA5100E116DE /* ZYGiftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYGiftViewCell.xib; sourceTree = "<group>"; };
 		09BF0A7B1EDEBB1800E116DE /* Kingfisher-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher-Extension.swift"; sourceTree = "<group>"; };
 		09C4D0821E94D2470010E87F /* ZYPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C4D0851E94D2470010E87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,44 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09BF0A631EDEA4D900E116DE /* Gift */ = {
-			isa = PBXGroup;
-			children = (
-				09BF0A641EDEA4FD00E116DE /* Model */,
-				09BF0A651EDEA4FD00E116DE /* View */,
-				09BF0A661EDEA4FD00E116DE /* ViewModel */,
-			);
-			path = Gift;
-			sourceTree = "<group>";
-		};
-		09BF0A641EDEA4FD00E116DE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				09BF0A671EDEAF1300E116DE /* ZYGiftEntity.swift */,
-				09BF0A6B1EDEB24600E116DE /* ZYGiftPackage.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		09BF0A651EDEA4FD00E116DE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				09BF0A731EDEB92B00E116DE /* ZYGiftView.swift */,
-				09BF0A751EDEB93500E116DE /* ZYGiftView.xib */,
-				09BF0A771EDEBA5100E116DE /* ZYGiftViewCell.swift */,
-				09BF0A781EDEBA5100E116DE /* ZYGiftViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		09BF0A661EDEA4FD00E116DE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				09BF0A6D1EDEB5B800E116DE /* ZYGiftVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		09C4D0791E94D2470010E87F = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +144,6 @@
 			children = (
 				09C4D0B61E94D2660010E87F /* PageView */,
 				09C860401ED952BF00C334D9 /* Emotion */,
-				09BF0A631EDEA4D900E116DE /* Gift */,
 				09C4D0851E94D2470010E87F /* AppDelegate.swift */,
 				09C4D0871E94D2470010E87F /* ViewController.swift */,
 				09C4D0891E94D2470010E87F /* Main.storyboard */,
@@ -420,10 +367,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09BF0A761EDEB93500E116DE /* ZYGiftView.xib in Resources */,
 				09C860541ED9586400C334D9 /* ZYEmotionCell.xib in Resources */,
 				09C860471ED953D500C334D9 /* QHNormalEmotionSort.plist in Resources */,
-				09BF0A7A1EDEBA5100E116DE /* ZYGiftViewCell.xib in Resources */,
 				09C4D0931E94D2470010E87F /* LaunchScreen.storyboard in Resources */,
 				09C4D0901E94D2470010E87F /* Assets.xcassets in Resources */,
 				09C4D08B1E94D2470010E87F /* Main.storyboard in Resources */,
@@ -507,9 +452,7 @@
 				09A855301EBA30E900798056 /* ZYPageCollectionView.swift in Sources */,
 				09C860501ED9573200C334D9 /* ZYEmotionView.swift in Sources */,
 				09C8604E1ED9552700C334D9 /* ZYEmoPackageEntity.swift in Sources */,
-				09BF0A791EDEBA5100E116DE /* ZYGiftViewCell.swift in Sources */,
 				09BF0A6A1EDEB12500E116DE /* ZYBaseEntity.swift in Sources */,
-				09BF0A681EDEAF1300E116DE /* ZYGiftEntity.swift in Sources */,
 				09C4D0B81E94D2850010E87F /* ZYContainView.swift in Sources */,
 				09C4D0BA1E94D2940010E87F /* ZYTitleView.swift in Sources */,
 				09A855321EBA380C00798056 /* ZYPageCollectionViewLayout.swift in Sources */,
@@ -519,9 +462,6 @@
 				09C860531ED9586400C334D9 /* ZYEmotionCell.swift in Sources */,
 				09C4D0861E94D2470010E87F /* AppDelegate.swift in Sources */,
 				09BF0A701EDEB64600E116DE /* ZYNetworkTool.swift in Sources */,
-				09BF0A741EDEB92B00E116DE /* ZYGiftView.swift in Sources */,
-				09BF0A6C1EDEB24600E116DE /* ZYGiftPackage.swift in Sources */,
-				09BF0A6E1EDEB5B800E116DE /* ZYGiftVM.swift in Sources */,
 				09BF0A7C1EDEBB1800E116DE /* Kingfisher-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

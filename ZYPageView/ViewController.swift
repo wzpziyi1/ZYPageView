@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        showGiftView()
+        showPageViewWithCollectionView()
         
     }
 
@@ -51,15 +51,5 @@ class ViewController: UIViewController {
         view.addSubview(emotionView)
     }
     
-    
-    /// 礼物键盘
-    fileprivate func showGiftView() {
-        automaticallyAdjustsScrollViewInsets = false
-        
-        let giftView = Bundle.main.loadNibNamed("ZYGiftView", owner: nil, options: nil)?.last as! ZYGiftView
-        giftView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 320)
-        giftView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        view.addSubview(giftView)
-    }
 }
 

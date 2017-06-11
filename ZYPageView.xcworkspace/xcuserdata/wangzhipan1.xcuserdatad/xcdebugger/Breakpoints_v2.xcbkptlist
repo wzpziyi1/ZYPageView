@@ -2,4 +2,86 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZYPageView/PageView/ZYPageCollectionView.swift"
+            timestampString = "518860508.417224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZYPageView/Gift/View/ZYGiftView.swift"
+            timestampString = "518861153.802737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "loadGiftData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZYPageView/Gift/ViewModel/ZYGiftVM.swift"
+            timestampString = "518861598.106437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "loadGiftData(finishedCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZYPageView.ZYGiftVM.(loadGiftData (finishedCallback : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "ZYPageView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangzhipan1/%E5%BE%AE%E4%BA%91%E5%90%8C%E6%AD%A5%E7%9B%98/oc%E7%A8%8B%E5%BA%8F/ZYPageView/ZYPageView/Gift/ViewModel/ZYGiftVM.swift"
+                  timestampString = "518861599.228467"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "1934">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZYPageView.ZYGiftVM.(loadGiftData (finishedCallback : () -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "ZYPageView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangzhipan1/%E5%BE%AE%E4%BA%91%E5%90%8C%E6%AD%A5%E7%9B%98/oc%E7%A8%8B%E5%BA%8F/ZYPageView/ZYPageView/Gift/ViewModel/ZYGiftVM.swift"
+                  timestampString = "518861599.230424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

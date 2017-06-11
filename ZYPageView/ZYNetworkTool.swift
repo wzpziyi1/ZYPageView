@@ -20,7 +20,7 @@ class ZYNetworkTool: NSObject {
         
         let method = (type == ZYNetworkType.get) ? HTTPMethod.get : HTTPMethod.post
         
-        Alamofire.request(urlStr, method: method, parameters: params).validate(contentType: ["text/plain"]).responseJSON { (response) in
+        Alamofire.request(urlStr, method: method, parameters: params).responseJSON { (response) in
             
             guard let result = response.result.value else{
                 print(response.result.error!)
