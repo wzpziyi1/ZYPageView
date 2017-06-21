@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         
         showPageViewWithCollectionView()
         
+//        showPageViewWithVcs();
+        
     }
 
     fileprivate func showPageViewWithVcs() {
