@@ -37,7 +37,7 @@ extension ZYEmotionView {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.cols = 7
         layout.rows = 3
-        let pageCollectionView = ZYPageCollectionView(frame: bounds, titles: titles, isTitleInTop: false, style: style, layout: layout)
+        let pageCollectionView = ZYPageCollectionView(frame: bounds, titles: titles, isTitleInTop: true, style: style, layout: layout)
         
         //注册cell
         pageCollectionView.registerCellNib(UINib(nibName: kEmotionCellIdentifier, bundle: nil), identifier: kEmotionCellIdentifier)
